@@ -32,6 +32,16 @@ def load_data():
     except Exception as e:
         print(f"Error loading Dataset_5971.csv: {e}")
 
+    # Load new_spam_data.csv
+    try:
+        new_data_path = os.path.join(os.path.dirname(__file__), 'data', 'new_spam_data.csv')
+        df_new = pd.read_csv(new_data_path)
+        # Columns: label, text
+        data_frames.append(df_new)
+        print(f"Loaded new_spam_data.csv from {new_data_path}")
+    except Exception as e:
+        print(f"Error loading new_spam_data.csv: {e}")
+
     if not data_frames:
         raise ValueError("No data loaded!")
 
