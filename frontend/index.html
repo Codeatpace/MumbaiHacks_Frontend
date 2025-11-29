@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafeEcho - Autonomous Guardian</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Simulation Control -->
+        <aside class="panel control-panel">
+            <h2>Simulation Control</h2>
+            <div class="control-group">
+                <h3>Trigger Event</h3>
+                <button onclick="simulateSafeSMS()">Incoming Safe SMS</button>
+                <button onclick="simulateSpamSMS()">Incoming Scam SMS</button>
+                <button onclick="simulateSafeCall()">Incoming Safe Call</button>
+                <button onclick="simulateScamCall()">Incoming Scam Call (Deepfake)</button>
+            </div>
+            <div class="control-group">
+                <h3>Custom Input</h3>
+                <textarea id="customInput" placeholder="Type custom message or transcript..."></textarea>
+                <button onclick="analyzeCustomText()">Send as SMS</button>
+                <button onclick="analyzeCustomAudio()">Send as Call Transcript</button>
+            </div>
+            <div class="status-indicator">
+                Status: <span id="systemStatus">Active</span>
+            </div>
+        </aside>
+
+        <!-- Victim Device (Phone) -->
+        <main class="phone-wrapper">
+            <div class="phone-frame">
+                <div class="notch"></div>
+                <div class="screen">
+                    <div class="status-bar">
+                        <span>9:41</span>
+                        <span>SafeEcho Active 🛡️</span>
+                    </div>
+
+                    <!-- Home Screen -->
+                    <div id="homeScreen" class="screen-content active">
+                        <div class="app-icon safe-echo-icon">
+                            <div class="shield-logo">🛡️</div>
+                            <span>SafeEcho</span>
+                        </div>
+                        <div class="widget">
+                            <h3>Guardian Status</h3>
+                            <p>Scanning for threats...</p>
+                            <div class="pulse-ring"></div>
+                        </div>
+                    </div>
+
+                    <!-- Incoming Call Screen -->
+                    <div id="callScreen" class="screen-content hidden">
+                        <div class="caller-info">
+                            <div class="avatar">👤</div>
+                            <h2 id="callerName">Unknown</h2>
+                            <p id="callStatus">Incoming Call...</p>
+                        </div>
+                        <div class="analysis-overlay" id="callAnalysis">
+                            <p>Analyzing Audio...</p>
+                            <div class="wave-animation"></div>
+                        </div>
+                        <div class="alert-box hidden" id="callAlert">
+                            ⚠️ SCAM DETECTED
+                            <p id="callReason"></p>
+                        </div>
+                        <div class="call-actions">
+                            <button class="btn-decline" onclick="endCall()">Decline</button>
+                            <button class="btn-accept" onclick="acceptCall()">Accept</button>
+                        </div>
+                        <button id="btnEndCall" class="btn-end-call hidden" onclick="endCall()">End Call</button>
+                    </div>
+
+                    <!-- Message Screen -->
+                    <div id="msgScreen" class="screen-content hidden">
+                        <div class="msg-header">
+                            <button onclick="showHome()">←</button>
+                            <span>Messages</span>
+                        </div>
+                        <div class="msg-list" id="msgList">
+                            <!-- Messages go here -->
+                        </div>
+                        <div class="alert-popup hidden" id="msgAlert">
+                            <div class="alert-content">
+                                <h3>⚠️ Suspicious Message</h3>
+                                <p id="msgReason"></p>
+                                <button onclick="dismissMsgAlert()">Dismiss</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </main>
+
+        <!-- Caregiver Dashboard -->
+        <aside class="panel dashboard-panel">
+            <h2>Caregiver Dashboard</h2>
+            <div class="stats-row">
+                <div class="stat-card">
+                    <h4>Threats Blocked</h4>
+                    <span id="threatCount">0</span>
+                </div>
+                <div class="stat-card">
+                    <h4>Status</h4>
+                    <span class="status-ok">Online</span>
+                </div>
+            </div>
+            <h3>Recent Alerts</h3>
+            <div class="alerts-list" id="caregiverAlerts">
+                <div class="empty-state">No active threats detected.</div>
+            </div>
+            <button class="btn-clear" onclick="clearAlerts()">Clear History</button>
+        </aside>
+    </div>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
