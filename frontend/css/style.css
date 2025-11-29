@@ -354,3 +354,94 @@ textarea {
     border: 1px solid #334155;
     margin-top: 20px;
 }
+
+/* Landing Page Styles */
+.landing-page {
+    background-color: #f8fafc; /* Light background */
+    color: #1e293b;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.landing-logo {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.shield-icon {
+    font-size: 80px;
+    color: #15803d; /* Dark Green */
+}
+
+.pulse-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 40px;
+    color: white;
+}
+
+.landing-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 36px;
+    font-weight: 800;
+    color: #064e3b; /* Darker Green */
+    margin: 10px 0;
+}
+
+.landing-tagline {
+    font-size: 16px;
+    color: #334155;
+    margin-bottom: 40px;
+    line-height: 1.5;
+    max-width: 250px;
+}
+
+.landing-visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    height: 60px;
+    margin-bottom: 50px;
+}
+
+.wave-bar {
+    width: 6px;
+    background: linear-gradient(to bottom, #22c55e, #ef4444);
+    border-radius: 3px;
+    animation: wave 1s infinite ease-in-out;
+}
+
+.wave-bar:nth-child(1) { height: 20px; animation-delay: 0.1s; }
+.wave-bar:nth-child(2) { height: 40px; animation-delay: 0.2s; }
+.wave-bar:nth-child(3) { height: 60px; animation-delay: 0.3s; }
+.wave-bar:nth-child(4) { height: 50px; animation-delay: 0.4s; }
+.wave-bar:nth-child(5) { height: 30px; animation-delay: 0.5s; }
+.wave-bar:nth-child(6) { height: 40px; animation-delay: 0.2s; }
+.wave-bar:nth-child(7) { height: 20px; animation-delay: 0.1s; }
+
+@keyframes wave {
+    0%, 100% { transform: scaleY(1); }
+    50% { transform: scaleY(1.5); }
+}
+
+.btn-get-started {
+    background-color: #15803d;
+    color: white;
+    font-size: 18px;
+    padding: 15px 40px;
+    border-radius: 30px;
+    box-shadow: 0 4px 10px rgba(21, 128, 61, 0.3);
+    transition: transform 0.2s;
+}
+
+.btn-get-started:hover {
+    background-color: #166534;
+    transform: translateY(-2px);
+}

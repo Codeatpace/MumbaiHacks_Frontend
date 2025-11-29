@@ -19,7 +19,7 @@ app.add_middleware(
 )
 
 # Load Model
-MODEL_PATH = r'd:\TP\SafeEcho\backend\models\spam_model.pkl'
+MODEL_PATH = os.path.join(os.path.dirname(__file__), "models", "spam_model.pkl")
 try:
     model = joblib.load(MODEL_PATH)
     print("Model loaded successfully.")
@@ -150,4 +150,4 @@ def clear_alerts():
     return {"status": "cleared"}
 
 # Serve Frontend
-app.mount("/", StaticFiles(directory=r"d:\TP\SafeEcho\frontend", html=True), name="frontend")
+app.mount("/", StaticFiles(directory=os.path.join(os.path.dirname(__file__), "../frontend"), html=True), name="frontend")
