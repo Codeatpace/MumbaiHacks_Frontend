@@ -29,6 +29,10 @@ function showScreen(screenId) {
 
 function showHome() { showScreen('homeScreen'); }
 
+function startApp() {
+    showScreen('homeScreen');
+}
+
 // Simulation Triggers
 async function simulateSafeSMS() {
     const text = "Hi Grandma, are you coming to dinner on Sunday? Love, Sarah.";

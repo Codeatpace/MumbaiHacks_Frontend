@@ -11,12 +11,12 @@ SafeEcho is a scam detection application that uses AI to analyze text and audio 
 
 1.  Navigate to the project root directory:
     ```bash
-    cd d:\TP\SafeEcho
+    cd SafeEcho
     ```
 
 2.  Install the required dependencies:
     ```bash
-    pip install -r requirements.txt
+    pip install -r requirements.txt 
     ```
 
 ## Running the Application
